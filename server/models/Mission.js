@@ -1,4 +1,3 @@
-// /server/models/Mission.js
 
 const mongoose = require('mongoose');
 

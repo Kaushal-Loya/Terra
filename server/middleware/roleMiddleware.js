@@ -1,4 +1,3 @@
-// /server/middleware/roleMiddleware.js
 
 const authorize = (...roles) => {
   return (req, res, next) => {
