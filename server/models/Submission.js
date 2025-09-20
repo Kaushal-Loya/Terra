@@ -1,4 +1,3 @@
-// /server/models/Submission.js
 
 const mongoose = require('mongoose');
 
@@ -13,7 +12,6 @@ const submissionSchema = new mongoose.Schema({
     required: true,
     ref: 'User',
   },
-  // We'll store the path to the uploaded image file
   proofImage: {
     type: String,
     required: true,

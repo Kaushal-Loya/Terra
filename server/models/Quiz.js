@@ -1,8 +1,6 @@
-// /server/models/Quiz.js
 
 const mongoose = require('mongoose');
 
-// This defines the structure for a single question within a quiz
 const questionSchema = new mongoose.Schema({
   questionText: {
     type: String,
@@ -21,7 +19,6 @@ const questionSchema = new mongoose.Schema({
   },
 });
 
-// This is the main schema for the entire quiz
 const quizSchema = new mongoose.Schema({
   ageGroup: {
   type: String,
