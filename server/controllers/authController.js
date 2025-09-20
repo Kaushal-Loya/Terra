@@ -15,7 +15,8 @@ const generateToken = (id) => {
 // @route   POST /api/auth/register
 // @access  Public
 const registerUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  // Destructure the new fields from the request body
+  const { name, email, password, gender, ageGroup, school } = req.body;
 
   try {
     const userExists = await User.findOne({ email });
@@ -24,20 +25,21 @@ const registerUser = async (req, res) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // When this user is created, mongoose automatically sets ecoCoins to 0 because of the 'default' value in the schema.
+    // Create the user with the new fields
     const user = await User.create({
       name,
       email,
       password,
+      gender,
+      ageGroup,
+      school,
     });
 
     if (user) {
-      // Because user was created successfully, user.ecoCoins exists and has a value of 0.
       res.status(201).json({
         _id: user._id,
         name: user.name,
         email: user.email,
-        ecoCoins: user.ecoCoins,
         token: generateToken(user._id),
       });
     } else {

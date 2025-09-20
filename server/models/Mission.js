@@ -10,6 +10,12 @@ const missionSchema = new mongoose.Schema({
     required: true,
     enum: ['Waste Reduction', 'Energy Saving', 'Water Conservation', 'Community Cleanup'],
   },
+  ageGroup: {
+  type: String,
+  required: true,
+  enum: ['8-12', '12-15', '15-20', 'All'],
+  default: 'All',
+},
   ecoCoins: { type: Number, required: true, default: 10 },
   // Link to the user who created the mission (e.g., a teacher or admin)
   createdBy: {
@@ -17,6 +23,7 @@ const missionSchema = new mongoose.Schema({
     required: true,
     ref: 'User',
   },
+
 }, {
   timestamps: true,
 });

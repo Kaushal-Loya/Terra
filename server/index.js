@@ -52,6 +52,9 @@ const quizRoutes = require('./routes/quizRoutes');
 app.use('/api/quizzes', quizRoutes);
 // ...
 
+const statsRoutes = require('./routes/statsRoutes');
+app.use('/api/stats', statsRoutes);
+
 // Define the port to run on
 const PORT = process.env.PORT || 5000;
 

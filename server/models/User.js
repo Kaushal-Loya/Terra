@@ -9,13 +9,25 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   role: {
     type: String,
-    enum: ['student', 'teacher', 'ngo', 'admin'],
+    enum: ['student', 'teacher', 'admin'],
     default: 'student',
+  },
+  gender: {
+    type: String,
+    enum: ['Male', 'Female'],
+  },
+  ageGroup: {
+    type: String,
+    required: true,
+    enum: ['8-12', '12-15', '15-20'],
+  },
+  school: {
+    type: String,
   },
   ecoCoins: { type: Number, default: 0 },
   badges: [{ type: String }],
 }, {
-  timestamps: true, // Adds createdAt and updatedAt timestamps
+  timestamps: true, 
 });
 
 // Middleware to hash password before saving user to database
